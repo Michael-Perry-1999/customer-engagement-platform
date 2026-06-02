@@ -2,9 +2,11 @@
 
 ## Overview
 
-This project demonstrates a modern customer engagement analytics platform built using PySpark and medallion architecture principles. The goal of the platform is to ingest and process customer behavioural data from multiple sources, transform it into analytics-ready datasets, and support downstream customer segmentation and marketing activation use cases.
+This project demonstrates a modern customer engagement analytics platform built using PySpark and medallion architecture principles.
 
-The project is designed to reflect common patterns used in modern cloud data platforms leveraging technologies such as Databricks, Delta Lake, and Snowflake.
+The goal of the platform is to ingest and process customer behavioural data from multiple sources, transform it into analytics-ready datasets, and support downstream customer segmentation and marketing activation use cases.
+
+The implementation is designed to reflect common patterns used in modern cloud data platforms leveraging technologies such as Databricks, Delta Lake and Snowflake.
 
 ---
 
@@ -12,11 +14,11 @@ The project is designed to reflect common patterns used in modern cloud data pla
 
 Many organisations struggle to unify customer interaction data across multiple systems including:
 
-* Website activity
-* Mobile application events
+* website activity
+* mobile application events
 * CRM platforms
-* Transaction systems
-* Marketing engagement tools
+* transaction systems
+* marketing engagement tools
 
 This often results in:
 
@@ -26,13 +28,19 @@ This often results in:
 * delayed campaign activation
 * duplicated business logic across teams
 
-The objective of this platform is to centralise customer event data and create trusted, analytics-ready datasets for reporting, customer intelligence, and marketing activation.
+The objective of this platform is to centralise customer event data and create trusted, analytics-ready datasets for reporting, customer intelligence and marketing activation.
 
 ---
 
-## Architecture
+## Architecture Diagram
 
-The platform follows a medallion architecture approach:
+![Customer Engagement Platform Architecture](architecture/customer-engagement-platform.png)
+
+---
+
+## Architecture Approach
+
+The platform follows a medallion architecture approach.
 
 ### Bronze Layer
 
@@ -69,12 +77,6 @@ Responsibilities:
 
 ---
 
-## Architecture Diagram
-
-![Customer Engagement Platform Architecture](customer-engagement-platform.png)
-
----
-
 ## Technologies Used
 
 | Technology             | Purpose                           |
@@ -92,7 +94,7 @@ Responsibilities:
 
 ### Incremental Processing
 
-The pipeline is designed with incremental ingestion patterns to support scalable processing of new event data.
+The pipeline is designed with incremental ingestion patterns to support scalable processing of new customer event data.
 
 ### Deduplication Logic
 
@@ -114,6 +116,7 @@ The gold layer produces curated datasets including:
 * purchase frequency
 * recent activity metrics
 * engagement indicators
+* campaign eligibility datasets
 
 ---
 
@@ -125,7 +128,7 @@ Identify highly engaged customers for targeted marketing campaigns.
 
 ### Campaign Activation
 
-Provide activation-ready datasets for customer engagement platforms such as Braze.
+Provide activation-ready datasets for customer engagement platforms such as Braze or Hightouch.
 
 ### Executive Reporting
 
@@ -172,6 +175,62 @@ Key considerations include:
 
 ---
 
+## Repository Structure
+
+```text
+customer-engagement-platform/
+│
+├── architecture/
+│   ├── customer-engagement-platform.png
+│   └── customer-engagement-platform.drawio
+│
+├── data/
+│   └── sample_events.json
+│
+├── notebooks/
+│   └── customer_engagement_pipeline.py
+│
+├── sql/
+│   └── customer_segmentation.sql
+│
+├── docs/
+│   └── design-decisions.md
+│
+├── requirements.txt
+│
+└── README.md
+```
+
+---
+
+## Key Components
+
+| Component                                       | Description                                 |
+| ----------------------------------------------- | ------------------------------------------- |
+| `notebooks/customer_engagement_pipeline.py`     | PySpark medallion pipeline                  |
+| `sql/customer_segmentation.sql`                 | Snowflake-style customer segmentation model |
+| `data/sample_events.json`                       | Sample customer engagement events           |
+| `architecture/customer-engagement-platform.png` | Architecture diagram                        |
+| `docs/design-decisions.md`                      | Engineering and architecture decisions      |
+
+---
+
+## Running the Project
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the PySpark pipeline:
+
+```bash
+python notebooks/customer_engagement_pipeline.py
+```
+
+---
+
 ## Future Enhancements
 
 Potential future enhancements include:
@@ -187,31 +246,8 @@ Potential future enhancements include:
 
 ---
 
-## Repository Structure
-
-```text
-customer-engagement-platform/
-│
-├── architecture/
-│   └── architecture-diagram.png
-│
-├── data/
-│   └── sample_events.json
-│
-├── notebooks/
-│   └── customer_engagement_pipeline.ipynb
-│
-├── sql/
-│   └── customer_segmentation.sql
-│
-├── docs/
-│   └── design-decisions.md
-│
-└── README.md
-```
-
----
-
 ## Notes
 
-This project is intended as a lightweight demonstration of modern data engineering and customer analytics architecture patterns. The implementation focuses on demonstrating scalable design principles, transformation logic, and production-oriented thinking rather than full infrastructure deployment.
+This project is intended as a lightweight demonstration of modern data engineering and customer analytics architecture patterns.
+
+The implementation focuses on demonstrating scalable design principles, transformation logic and production-oriented thinking rather than full infrastructure deployment.
