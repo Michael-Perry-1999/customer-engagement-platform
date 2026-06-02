@@ -69,21 +69,9 @@ Responsibilities:
 
 ---
 
-## Example Data Flow
+## Architecture Diagram
 
-```text
-Customer Events / Orders / CRM Data
-                ↓
-         Bronze Layer
-                ↓
-     Silver Standardisation
-                ↓
-      Gold Customer Models
-                ↓
-      Snowflake Data Marts
-                ↓
-  Reporting / Marketing Activation
-```
+![Customer Engagement Platform Architecture](customer-engagement-platform.png)
 
 ---
 
