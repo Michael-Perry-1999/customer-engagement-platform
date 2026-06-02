@@ -1,6 +1,3 @@
-# customer-engagement-platform
-Customer Engagement Analytics Platform
-
 # Customer Engagement Analytics Platform
 
 ## Overview
