@@ -34,7 +34,7 @@ The objective of this platform is to centralise customer event data and create t
 
 ## Architecture Diagram
 
-![Customer Engagement Platform Architecture](architecture/customer-engagement-platform.png)
+![Customer Engagement Platform Architecture](architecture/customer-engagement-platform-architecture.png)
 
 ---
 
