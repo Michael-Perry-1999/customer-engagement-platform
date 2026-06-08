@@ -75,6 +75,13 @@ Responsibilities:
 * KPI generation
 * campaign-ready outputs
 
+## Why a Medallion Architecture?
+
+- Bronze preserves source fidelity.
+- Silver standardises and validates data.
+- Gold produces business-facing customer data products.
+- Separation of concerns improves maintainability and scalability.
+
 ---
 
 ## Technologies Used
@@ -175,75 +182,39 @@ Key considerations include:
 
 ---
 
-## Repository Structure
+## Roadmap
 
-```text
-customer-engagement-platform/
-│
-├── architecture/
-│   ├── customer-engagement-platform.png
-│   └── customer-engagement-platform.drawio
-│
-├── data/
-│   └── sample_events.json
-│
-├── notebooks/
-│   └── customer_engagement_pipeline.py
-│
-├── sql/
-│   └── customer_segmentation.sql
-│
-├── docs/
-│   └── design-decisions.md
-│
-├── requirements.txt
-│
-└── README.md
-```
+### Phase 1 – Core Customer Data Platform (Current)
+- Multi-source customer event ingestion
+- Bronze, Silver and Gold data layers
+- Customer 360 data model
+- Customer segmentation
+- Campaign eligibility modelling
+- Customer data products for analytics and activation
 
----
+### Phase 2 – Production Readiness
+- Automated data quality monitoring
+- Data contract validation
+- SLA tracking and alerting
+- Enhanced observability and pipeline monitoring
+- Infrastructure as Code (Terraform)
+- Automated testing framework
 
-## Key Components
+### Phase 3 – Customer Intelligence
+- Customer consent and preference management
+- Propensity scoring models
+- Churn prediction
+- Customer lifetime value modelling
+- Dynamic audience generation
+- Next-best-action recommendations
 
-| Component                                       | Description                                 |
-| ----------------------------------------------- | ------------------------------------------- |
-| `notebooks/customer_engagement_pipeline.py`     | PySpark medallion pipeline                  |
-| `sql/customer_segmentation.sql`                 | Snowflake-style customer segmentation model |
-| `data/sample_events.json`                       | Sample customer engagement events           |
-| `architecture/customer-engagement-platform.png` | Architecture diagram                        |
-| `docs/design-decisions.md`                      | Engineering and architecture decisions      |
-
----
-
-## Running the Project
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the PySpark pipeline:
-
-```bash
-python notebooks/customer_engagement_pipeline.py
-```
-
----
-
-## Future Enhancements
-
-Potential future enhancements include:
-
-* real-time streaming ingestion
-* Delta Live Tables implementation
-* dbt transformation layers
-* automated data lineage
-* Great Expectations data quality testing
-* customer identity resolution
-* Braze API integration
-* feature engineering for ML workloads
-
+### Phase 4 – Real-Time Activation
+- Event-driven ingestion architecture
+- Real-time customer segmentation
+- Real-time journey triggering
+- Streaming analytics
+- Personalisation at scale
+- Advanced experimentation and A/B testing
 ---
 
 ## Notes
